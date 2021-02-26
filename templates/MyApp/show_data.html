@@ -1,0 +1,16 @@
+{% extends 'MyApp/base.html' %}
+
+{% block content %}
+    {% csrf_token %}
+  <h2 style="align-self: center;">Show Data</h2>
+    {% for field in data %}
+
+        <h2>{{field.title}}</h2>
+        <h4>{{field.category }}</h4>
+        <p>{{ field.description|safe}}</p>
+<hr>
+    {% endfor %}
+    {% if not data %}
+        <p>there is no data</p>
+    {%endif %}
+{% endblock %}
